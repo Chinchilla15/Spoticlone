@@ -1,5 +1,6 @@
 package com.example.spoticlone
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // Login logic
         val usernameInput = findViewById<EditText>(R.id.usernameEditText)
         val passwordInput = findViewById<EditText>(R.id.passwordEditText)
         val loginButton = findViewById<Button>(R.id.loginButton)
@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
             if (username == "user" && password == "password") {
                 Toast.makeText(this, "¡Inicio de sesión exitoso!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, PlayerActivity::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
             }
